@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rock Paper Scissors Game{% endblock %}
+{% block body %}
+    <div class="d-flex justify-content-center bd-highlight mb-3">
+        <h1>Rock 👊 Paper ✋ Scissors ✌️</h1>
+    </div>
+    <div class="d-flex justify-content-around bd-highlight">
+            <div class="p-2 bd-highlight">
+            <div class="d-flex justify-content-center bd-highlight mb-3">
+                <h2>Play Online</h2>
+                </div>
+                <div class="d-flex justify-content-center bd-highlight mb-3">
+                    <img src="{{asset('ressources/peoples.png')}}" width="100vw"></img>
+                </div>
+                <div class="d-flex justify-content-center bd-highlight mb-3">
+                <p>You can join or create a room here :</p>
+                </div>
+                <ul class="list-group">
+                {% if rooms|length>0 %}
+                {% for i in 0..rooms|length -1 %}
+                    {% if i<5 %}
+                    <li class="list-group-item list-group-item-dark" id="page{{i//2}}"><a href='/{{rooms[i].id}}' class="link-light">{{rooms[i].name}}</a></li>
+                    {% else %}
+                    <li class="list-group-item list-group-item-dark d-none" id="page{{i//2}}"><a href='/{{rooms[i].id}}' class="link-light">{{rooms[i].name}}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% else %}
+                    <li class="list-group-item list-group-item-dark">No room is available</li>
+                {% endif %}
+                    <li class="list-group-item list-group-item-dark"> <a href='/create' class="link-dark">Create a new Room </a>
+                </ul>
+            </div>
+            <div class="p-2 bd-highlight">
+                <div class="d-flex justify-content-center bd-highlight mb-3">
+                    <h2>Rules</h2>
+                </div>
+                 <div class="d-flex justify-content-center bd-highlight mb-3">
+                    <img src="{{asset('ressources/rules1.png')}}" width="100vw"></img>
+                </div>
+                <div class="d-flex justify-content-center bd-highlight mb-3">
+                    <div class="w-75">
+                    <div class="d-flex justify-content-center bd-highlight mb-3">
+                    <p>• The rock 👊 beat the scissors ✌️</p>
+                    </div>
+                    <div class="d-flex justify-content-center bd-highlight mb-3">
+                    <p>• The scissors ✌️ beat the paper ✋</p>
+                    </div>
+                    <div class="d-flex justify-content-center bd-highlight mb-3">
+                    <p>• The paper ✋ beat the rock 👊</p>
+                    </div>
+                    <div class="d-flex justify-content-center bd-highlight mb-3">
+                    <p>Try to guess what your opponent chosed and beat him</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="p-2 bd-highlight">
+            <div class="d-flex justify-content-center bd-highlight mb-3">
+                <h2>Play Solo</h2>
+            </div> 
+            <div class="d-flex justify-content-center bd-highlight mb-3">
+                    <img src="{{asset('ressources/solo.png')}}" width="100vw"></img>
+                </div>
+            <div class="d-flex justify-content-center bd-highlight mb-3">
+                <div class="w-75">
+            <p>Try to guess what the computer chosed and beat him</p>
+            </div> 
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

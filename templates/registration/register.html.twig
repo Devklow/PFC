@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block body %}
+<div class="w-100" style="height: 10vh;">
+</div>
+<div class="d-flex justify-content-center bd-highlight mb-3">
+<fieldset class="w-75 border p-2 rounded" style="max-width: 400px;">
+<div class="d-flex justify-content-center align-center bd-highlight mb-3">
+   <legend  class="w-auto">Sign up</legend>
+</div>
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password (between 6 and 15 caracters)'
+        }) }}
+    <div class="d-flex justify-content-center bd-highlight">
+        <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
+        </div>
+    {{ form_end(registrationForm) }}
+</fieldset>
+</div>
+{% endblock %}

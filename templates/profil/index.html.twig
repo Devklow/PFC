@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{profil}}'s profil{% endblock %}
+
+{% block body %}
+
+{% if rock is null %}
+{% set rock = 0 %}
+{% endif %}
+{% if paper is null %}
+{% set paper = 0 %}
+{% endif %}
+{% if scissors is null %}
+{% set scissors = 0 %}
+{% endif %}
+{% if win is null %}
+{% set win = 0 %}
+{% endif %}
+{% if lose is null %}
+{% set lose = 0 %}
+{% endif %}
+{% if eq is null %}
+{% set eq = 0 %}
+{% endif %}
+{% set round = rock + paper + scissors %}
+{% set match = eq + win + lose %}
+
+<div class="d-flex justify-content-center bd-highlight mb-5">
+        <h1>Welcome to {{profil}}'s profil</h1>
+    </div>
+<div class="d-flex justify-content-center bd-highlight mb-3">
+{% set sign = {'0':"❌",'1':"👊",'2':"✋",'3':"✌️"} %}
+<div class="p-2 w-100">
+<div class="d-flex justify-content-center bd-highlight mb-3">
+        <h3>{{profil}}'s Favorite sign :</h3></div>
+        <div class="d-flex justify-content-center bd-highlight mb-3">
+        <button class="btn btn-secondary disabled" id="favorite" style="height:2.5em;width:1.8em;font-size: 5em">{{sign[favorite]}}</button></div></div>
+<div class="p-2 w-100">
+<div class="d-flex justify-content-center bd-highlight mb-3">
+<h3>Total use of signs</h3></div>
+<table class="table text-light" style="text-align:center;">
+  <thead>
+    <tr>
+        <th scope="col">👊</th>
+        <th scope="col">✋</th>
+        <th scope="col">✌️</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>{{rock}}</td>
+        <td>{{paper}}</td>
+        <td>{{scissors}}</td>
+    </tr>
+</tbody>
+</table>
+<div class="d-flex justify-content-center bd-highlight">
+<h3>Total rounds played</h3></div>
+<div class="d-flex justify-content-center bd-highlight mb-3">
+<h3>{{round}}</h3></div>
+</div>
+<div class="p-2 w-100">
+<div class="d-flex justify-content-center bd-highlight mb-3">
+        <h3>Ratio</h3></div>
+<table class="table text-light" style="text-align:center;">
+<thead>
+    <tr>
+        <th scope="col">Win</th>
+        <th scope="col">Lose</th>
+        <th scope="col">Equality</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>{{win}}</td>
+        <td>{{lose}}</td>
+        <td>{{eq}}</td>
+    </tr>
+    </tr>
+  </tbody>
+</table>
+<div class="d-flex justify-content-center bd-highlight mb">
+<h3>Total match played</h3></div>
+<div class="d-flex justify-content-center bd-highlight mb-3">
+<h3>{{match}}</h3></div>
+</div>
+</div>
+</div>
+{% endblock %}

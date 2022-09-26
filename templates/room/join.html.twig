@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Join a room{% endblock %}
+{% block body %}
+<div class="d-flex justify-content-center bd-highlight mb-3">
+    <fieldset class="w-75 border p-2 rounded mt-5" style="max-width: 400px;">
+    <div class="d-flex justify-content-center align-center bd-highlight mb-3">
+    <legend class="w-auto">Join a room</legend>
+</div>
+<form method="post">
+<div class="d-flex justify-content-center bd-highlight mb-5">
+<div class="form-group">
+    <label for="room" style="w;">Username : </label>
+        <div class="d-flex justify-content-center bd-highlight">
+            <input class="form-control mb-2" onClick="this.setSelectionRange(0, this.value.length)" type="text" name="pseudo" placeholder="Pseudo" value={{name}} minlength="3" maxlength="12" required>
+            <div class="d-flex justify-content-center bd-highlight" style="width: 150px;">
+                <button type="submit" class="btn btn-lg btn-primary mb-2" onClick="this.form.submit(); this.disabled=true; IsConnecting=true;">Join</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+</fieldset>
+</div>
+<script src="{{asset('assets/js/join.js')}}"></script>
+{% endblock %}

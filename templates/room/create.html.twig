@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create a new room{% endblock %}
+
+{% block body %}
+<div class="w-100" style="height: 10vh;">
+</div>
+<div class="d-flex justify-content-center bd-highlight mb-3">
+    <fieldset class="w-75 border p-2 rounded" style="max-width: 400px;">
+    <div class="d-flex justify-content-center align-center bd-highlight mb-3">
+    <legend  class="w-auto">Create a new Room</legend>
+</div>
+<div class="d-flex justify-content-center bd-highlight mb-5">
+    <div class="p-2 bd-highlight">
+        <form method="post">
+            <div class="d-flex justify-content-center bd-highlight">
+        <div class="form-group">
+                <label for="room" style="width: 130px;">Room's name : </label>
+             <div class="d-flex justify-content-center bd-highlight">
+                <input type="text" name="room" placeholder="My room" minlength="3" maxlength="19" class="form-control mb-2">
+            <div class="d-flex justify-content-center bd-highlight" style="width: 150px;">
+            <button type="submit" class="btn btn-lg btn-primary mb-2" onClick="this.form.submit(); this.disabled=true;">Create</button>
+            </div>
+            </div>
+            </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg btn-block w-100" onClick="parameters.classList.toggle('d-none');" style="height: 40px; font-size: 15px;">Parameters </button>
+            <fieldset id="parameters" class="w-75 border-right border-bottom border-left p-2 w-100 d-none" style="max-width: 400px;">
+            <div class="form-group">
+              <label for="round">Number of Rounds</label>
+                <select class="form-control" name="round" id="round">
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="Visibility">Visibility</label>
+                <select class="form-control" name="Visibility" id="Visibility">
+                    <option value="1">Public</option>
+                    <option value="0">Private</option>
+                </select>
+            </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</fieldset></div></legend>
+{% endblock %}
