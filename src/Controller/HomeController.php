@@ -31,4 +31,10 @@ class HomeController extends AbstractController
     {
         return $this->redirectToRoute('app_index');
     }
+
+    #[Route('/solo', name: 'app_solo')]
+    public function Solo(ManagerRegistry $doctrine): Response
+    {
+        return $this->render('home/solo.html.twig', []);
+    }
 }

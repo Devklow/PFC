@@ -1,54 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Room number {{Room}}{% endblock %}
+{% block title %}Play against computer{% endblock %}
 {% block body %}
-<div class="d-flex flex-row-reverse">
- <div class="d-flex justify-content-around bd-highlight">
-    <p>Connected as&nbsp;</p>
-    {% if Player is null %}
-        <p id="UserName">{{Host}}</p>
-        <p>&nbsp;(</p>
-        <p id="UserType">Host</p>
-        <p>)&nbsp;</p>
-    {% else %}
-        <p id="UserName">{{Player}}</p>
-        <p>&nbsp;(</p>
-        <p id="UserType">Player</p>
-        <p>)&nbsp;</p>
-    {% endif %}
-    {% if Player is null %}
-    <a class="text-light text-decoration-none dropdown-toggle" id="parametersDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    ⚙️
-    </a>
-    {% else %}
-        <a class="text-light text-decoration-none dropdown-toggle d-none" id="parametersDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    ⚙️
-    </a>
-    {% endif %}
-    <div class="dropdown-menu bg-light" aria-labelledby="parametersDropdown">
-        <div class="form-group" style="text-align:center;">
-            <label for="round">Number of Rounds</label>
-                <select class="form-control" name="round" id="round" style="text-align:center;">
-                    <option value="1">1</option>
-                    <option value="3">3</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                </select>
-            <div class="dropdown-divider"></div>
-            <label for="visibility">Visibility</label>
-                <select class="form-control" name="visibility" id="visibility" style="text-align:center;">
-                    <option value="1">🌍 Public</option>
-                    <option value="0">🔒 Private</option>
-                </select>
-            <div class="dropdown-divider"></div>
-            <button type="button" class="btn btn-primary btn-lg btn-block w-100" id="ApplyButton">Apply</button>
-        </div>
-    </div>
-    </div>
-</div>
 <div class="bd-highlight">
     <div class="d-flex flex-row-reverse">
-        <div class="d-flex justify-content-around bd-highlight">
+        <div class="d-flex justify-content-around bd-highlight mb-5">
         <p id="RoundText">⚪<p>
     </div>
     </div>
@@ -70,7 +26,7 @@
         </div>
     </div>
         <div class="d-flex justify-content-center bd-highlight">
-            <p id="Action">No one is connected</p>
+            <p id="computername">Computer</p>
         </div>
             <div class="d-flex justify-content-center bd-highlight mb-2">
                 <div class="p-2">
@@ -81,7 +37,7 @@
             <p id="Action">You</p>
         </div>
         <div class="d-flex justify-content-center bd-highlight">
-            <h1 id="Winner">Click ready when you are</h1>
+            <h1 id="Winner">Click on play</h1>
         </div>
         <div class="d-flex justify-content-around bd-highlight">
         <div class="PlayedCard d-flex justify-content-center bd-highlight">
@@ -107,10 +63,8 @@
         </div>
         </div>
         <div class="Hand d-flex justify-content-center bd-highlight">
-            <button type="button" name="ReadyButton" id="ReadyButton" class="btn btn-light d-none">Ready</button>
-        </div>
-        <div class="Hand d-flex justify-content-center bd-highlight mb-5 d-none">
+            <button type="button" name="ReplayButton" id="ReplayButton" class="btn btn-light">Play</button>
         </div>
     </div>
-<script src="{{asset('assets/js/room.js')}}"></script>
+<script src="{{asset('assets/js/solo.js')}}"></script>
 {% endblock %}
